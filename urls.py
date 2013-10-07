@@ -18,10 +18,8 @@ urlpatterns = patterns('',
     url(r'^notes/', include('notes.urls')),
     url(r'^contacts/$', ContactsView.as_view()),
     url(r'^portfolio/', include('portfolio.urls')),
-    url(r'^translateit/', include('translateit.urls')),
-    url(r'^$', RedirectView.as_view(url='/contacts/')),
+    url(r'^$', RedirectView.as_view(url='/notes/')),
     url(r'^bookshelf/', include('book.urls')),
-    url(r'^map/', include('mapit.urls')),
 )
 
 if settings.DEBUG:

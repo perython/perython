@@ -1,4 +1,4 @@
-{% if request.user.is_authenticated %}
+{% if user.is_authenticated %}
   <div class="admin">
     <a class="edit" href="/portfolio/{{ project.id }}/edit/">Edit project</a>
   </div>

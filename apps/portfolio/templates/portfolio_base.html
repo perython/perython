@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="/static/css/libs/jquery.fancybox.css" />
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/portfolio.css" />
 {% endblock %}
 
 {% block extra_js %}
-  <script src="{{ STATIC_URL }}js/libs/jquery.fancybox.pack.js"></script>
-  <script src="{{ STATIC_URL }}js/portfolio.js"></script>
 {% endblock %}

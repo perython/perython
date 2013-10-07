@@ -21,7 +21,7 @@
   <div class="books">
    <h2>Bookshelf</h2>
     <p>I use this page to order the books that I already read or reading now. I like to see results of wasting my time and it also keeps me motivating to read more and more.</p>
-    <p>Since January 2012 I've read {{ total_read }} books. Hurray!</p>
+    <p>Since January 2012 I've read <span class="total">{{ total_read }}</span> books. Hurray!</p>
     <div class="books-container">
         {% for book in books %}
           <div class="book">

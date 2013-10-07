@@ -3,7 +3,7 @@
 {% block title %}{% if cur_tag %}Search results for tag "{{ cur_tag }}"{% else %}Notes{% endif %}{% endblock %}
 
 {% block admin %}
-  {% if request.user.is_authenticated %}
+  {% if user.is_authenticated %}
     <a class="edit" href="/notes/add/">Add new note</a>
   {% endif %}
 {% endblock %}
@@ -19,18 +19,18 @@
     {% for note in notes %}
       <article class="note {% if not note.visible %}draft{% endif %}">
         <!--<h2><a href="{{ note.get_absolute_url }}">{{ note.title }}</a></h2>-->
-        <div class="note-date" title="{{ note.date_created|date('F d, Y, H:i') }}"><a href="{{ note.get_absolute_url() }}">{{ note.date_created|date('F d, Y') }}</a></div>
+        <div class="note-date" title="{{ note.date_created|date:'F d, Y, H:i' }}"><a href="{{ note.get_absolute_url }}">{{ note.date_created|date:'F d, Y' }}</a></div>
         <div class="note-entry">{{ note.entry|safe }}</div>
         <div class="note-info">
-          <a class="comments" href="{{ note.get_absolute_url() }}#disqus_thread" data-disqus-identifier="http://perython.com/blog/{{ note.id }}/"></a>
+          <a class="comments" href="{{ note.get_absolute_url }}#disqus_thread" data-disqus-identifier="http://perython.com/blog/{{ note.id }}/"></a>
           <span class="tags">
-            {% for tag in note.get_tags() %}
+            {% for tag in note.get_tags %}
               <a href="/notes/tagged/{{ tag }}/" class="note_tags">#{{ tag }}</a> 
             {% endfor %}
           </span>
         </div>
       </article>
-    {% else %}
+    {% empty %}
       Notes have been cleared out. Seems like just started a new life.
     {% endfor %}
   </section>

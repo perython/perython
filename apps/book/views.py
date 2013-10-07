@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.http import Http404
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
-\
+
 from book.models import Book
 from book.forms import BookAddForm
 

@@ -14,8 +14,7 @@ class Post(models.Model):
     visible = models.BooleanField()
     
     def __unicode__(self):
-        return 'fuck'
-        return '%s' % (self.title,)
+        return self.title
 
     def get_tags(self):
         return Tag.objects.get_for_object(self)

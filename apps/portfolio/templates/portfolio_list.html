@@ -11,12 +11,6 @@
 {% block content %}
   <div class="portfolio">
     <h2>Portfolio</h2>
-    {% for project in projects %}
-      <div class="project">
-        <a href="/portfolio/{{ project.id }}/">{{ project.name }} </a>
-      </div>
-    {% else %}
-      Shebang!
-    {% endfor %}
+    <p><a href="http://buryatnames.com/">buryatnames.com</a> - сайт с небольшой базой данных бурятских имен. [django/PostgreSQL/bootstrap3]
   </div>
 {% endblock %}

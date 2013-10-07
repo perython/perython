@@ -1,8 +1,6 @@
 from django.conf import settings
 from django.db import models
 
-# status: (read_already, want_to_read, hidden )
-
 class Book(models.Model):
     STATUS_CHOICES = (
         ('PL', 'Plans'),

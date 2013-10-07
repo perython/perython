@@ -3,7 +3,7 @@
 {% block title %}{{ note.title }}{% endblock %}
 
 {% block admin %}
-  {% if request.user.is_authenticated %}
+  {% if user.is_authenticated %}
     <a class="edit" href="/notes/add/">Add new note</a>
     <a class="edit" href="{{ note.get_url }}edit/">Edit note</a>
   {% endif %}
@@ -12,7 +12,7 @@
 {% block content %}
   <article class="note-current {% if not note.visible %}draft{% endif %}">
     <h2>{{ note.title }}</h2>
-    <div class="note-date" title="{{ note.date_created|date:'d M Y, H:i' }}">{{ note.date_created|date:"d M Y" }}</div>
+    <div class="note-date" title="{{ note.date_created|date:'F d, Y, H:i' }}">{{ note.date_created|date:"d M Y" }}</div>
     <div class="note-entry">{{ note.entry|safe }}</div>
     <div class="note-info">
       <span class="tags">

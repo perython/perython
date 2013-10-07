@@ -19,18 +19,6 @@ ALLOWED_HOSTS = [
     '.perython.com',
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'perython_db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
-
 TIME_ZONE = 'America/Los_Angeles'
 LANGUAGE_CODE = 'en-us'
 
@@ -50,14 +38,14 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,7 +55,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     #'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'middleware.JinjaMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -123,7 +110,9 @@ LOGGING = {
 }
 
 try:
-    from local_settings import *
+    if DEBUG:
+        from local_settings import *
+    else:
+        from prod_settings import *
 except ImportError:
     pass
-
