@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/notes.css" />
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{{ STATIC_URL }}js/libs/jquery.masonry.min.js"></script>
+  <script>
+	$(function(){
+	  var notes = $('.notes');
+    notes.imagesLoaded( function(){
+      notes.masonry({
+        itemSelector : '.note',
+        isResizable: true
+      });
+    });
+	});
+  </script>
+{% endblock %}

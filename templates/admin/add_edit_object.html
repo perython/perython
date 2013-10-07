@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% if ui %}
+  {% block extra_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/jquery-ui-1.9.1.custom.min.css">
+  {% endblock %}
+  {% block extra_js %}
+    <script src="{{ STATIC_URL }}js/libs/jquery-ui-1.9.1.custom.min.js"></script>
+    <script>
+      $(function(){
+        function check_date_input() {
+          if ($('.status input:checked').val() == 'FN') {
+            $('.date_read input').addClass('active').removeAttr('disabled');
+          } else {
+            $('.date_read input').val('').removeClass('active').attr('disabled', 'disabled');
+          }
+        }
+
+        $('input[name=date_read]').datepicker({dateFormat: 'yy-mm-dd'});
+        $('select[name=status]').change(function(){
+          if ($(this).val() == 'FN') {
+            $('input[name=date_read]').parent().fadeIn(200);
+          } else {
+            $('input[name=date_read]').val('').parent().hide();
+          }
+        }).change();
+        $('.status input[checked]').parents('li').addClass('selected');
+        $('.status li').click(function(){
+          $(this).siblings().removeClass('selected');
+          $(this).addClass('selected').find('input').attr('checked', true);
+          check_date_input();
+        });
+        check_date_input();
+
+      });
+    </script>
+  {% endblock %}
+{% endif %}
+
+{% block title %}{{ object_name }}{% endblock %}
+
+{% block content %}
+  <div class="add-edit">
+    {{ form.media }}
+    <h2>{{ object_name }}</h2>
+    <form class="add-edit-form" action="" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+      <ul>
+        {% for item in form %}
+          {% if item.errors %}
+            <ul class="errorlist">
+              {% for error in item.errors %}
+                <li>{{ error|escape }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <li class="{{ item.name }}">{{ item }}</li>
+        {% endfor %}
+      </ul>
+      <input type="submit" value="Save">
+    </form>
+  </div>
+{% endblock %}

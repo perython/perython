@@ -1,0 +1,23 @@
+.books { padding: 20px; }
+
+  .books .books-container { margin-top: 20px; }
+
+    .book { float: left; width: 100px; overflow: hidden; margin: 0 10px; background: #a7a37e; }
+    .book:hover { overflow: visible; z-index: 1; }
+
+      .book .status { float: right; }
+      .book .status.guest { float: none; width: 12px; margin: 0 auto;}
+      .book .status:hover { cursor: pointer; }
+
+        .book .status:hover { color: #000; }
+        .book .status span { display: none; position: absolute; top: 100%; left: 0; padding: 5px; font-size: 70%; line-height: 1.2; background: #000; color: #fff; }
+        .book .status:hover span { display: block; }
+
+      .book img { display: block; width: 200%; filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale"); -webkit-filter: grayscale(1); filter: gray; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; }
+      .book:hover img { position: absolute; left: -50%; cursor: pointer; -webkit-filter: grayscale(0); filter: none; }    
+      .book .book-info { display: none; position: absolute; top: 15px; left: 0; padding: 5px; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; background: #a7a37e; color: #fff; -moz-opacity: 0.85; opacity: 0.85; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=85); }
+      .book:hover .book-info { display: block; left: -60%; }
+
+        .book-info p { margin: 0; line-height: 1.2; }
+        .book-info .author, .book-info .edit { font-size: 70%;}
+        .book-info .title { font-size: 90%; }

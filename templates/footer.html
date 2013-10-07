@@ -1,0 +1,6 @@
+<footer>
+    perython.com (c) 2011-2012
+    {% if not request.user.is_authenticated %}
+        <a class="login" href="/login/">Login</a>
+    {% endif %}
+</footer>
