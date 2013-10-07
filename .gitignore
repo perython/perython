@@ -213,3 +213,11 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Custom files
+django.wsgi
+uwsgi-options.ini
+local_settings.py
+prod_settings.py
+logs/
+media/
