@@ -4,26 +4,24 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.contrib.auth.views import login, logout
-from django.views.generic.base import RedirectView
-from forms import CustomAuthenticationForm
-from views import ContactsView
+from django.views.generic.base import RedirectView, TemplateView
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
+    url(r'^$', RedirectView.as_view(url='/contacts/')),
+    url(r'^notes/$', RedirectView.as_view(url='/contacts/')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/$', login, {'template_name':'admin/login.html', 'authentication_form': CustomAuthenticationForm}),
-    url(r'^logout/$', logout, {'next_page':'/'}),
-    url(r'^notes/', include('notes.urls')),
-    url(r'^contacts/$', ContactsView.as_view()),
-    url(r'^portfolio/', include('portfolio.urls')),
-    url(r'^$', RedirectView.as_view(url='/notes/')),
+
+    url(r'^contacts/$', TemplateView.as_view(template_name='contacts.html'), name='contacts'),
+    url(r'^portfolio/$', TemplateView.as_view(template_name='portfolio.html'), name='portfolio'),
     url(r'^bookshelf/', include('book.urls')),
 )
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     )

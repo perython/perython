@@ -1,0 +1,7 @@
+STATUS_PLANNING, STATUS_IN_PROGRESS, STATUS_FINISHED = xrange(1, 4)
+
+STATUS_CHOICES = (
+    (STATUS_PLANNING, 'Planning'),
+    (STATUS_IN_PROGRESS, 'In progress'),
+    (STATUS_FINISHED, 'Finished'),
+)

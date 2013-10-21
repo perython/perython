@@ -1,0 +1,134 @@
+@import 'reset.css';
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,100&subset=latin,cyrillic);
+
+@white: #fff;
+@light-black: #a9acaf;
+@mostly-black: #38393a;
+@black: #000;
+@light-blue: #f1f4f9;
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: @light-blue;
+  color: @mostly-black;
+
+  font-family: "Exo 2", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: @mostly-black;
+}
+a:hover {
+  color: @black;
+}
+
+p, h1, h2 {
+  line-height: 1.41em;
+}
+
+header {
+  display: block;
+  background-color: @white;
+  text-align: center;
+  color: @light-black;
+
+  nav {
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    a {
+      padding: 0 10px;
+    }
+  }
+
+  .title {
+    padding-bottom: 10px;
+
+    h1 {
+      font-size: 4em;
+    }
+  }
+}
+
+.content {
+  max-width: 45em;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.portfolio {
+
+  li {
+    padding-bottom: 1.4em;
+
+    h2 {
+      font-size: 1.5em;
+      line-height: 1.4em;
+    }
+
+    p {
+
+    }
+  }
+}
+
+.bookshelf {
+  width: 100%;
+  list-style: none;
+
+  li {
+    display: block;
+    float: left;
+    padding: 7px;
+    width: 33%;
+    opacity: 0;
+
+    &.shown {
+      opacity: 1;
+    }
+
+    a, img {
+      outline: none;
+      border: none;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &.effect .animate {
+    -webkit-animation: fadeIn 0.65s ease forwards;
+    -moz-animation: fadeIn 0.65s ease forwards;
+    animation: fadeIn 0.65s ease forwards;
+  }
+}
+
+.no-js .bookshelf li,
+.no-cssanimations .bookshelf li {
+	opacity: 1;
+}
+
+@-webkit-keyframes fadeIn {
+	to { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+	to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+	to { opacity: 1; }
+}
+
+@media screen and (max-width: 600px) {
+	.bookshelf li {
+		width: 50%;
+	}
+}

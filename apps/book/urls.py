@@ -1,8 +1,11 @@
-from django.conf.urls import patterns, url
-from book.views import BooksView, BookAddView, BookEditView
+#!/usr/bin/env python
+# coding: utf-8
+from __future__ import unicode_literals
 
-urlpatterns = patterns('book.views',
-    url(r'^$', BooksView.as_view()),
-    url(r'^add/$', BookAddView.as_view()),
-    url(r'^(?P<pk>\d{1,10})/edit/$', BookEditView.as_view()),
+from django.conf.urls import patterns, url
+from .views import BooksView
+
+urlpatterns = patterns(
+    '',
+    url(r'^$', BooksView.as_view(), name='bookshelf'),
 )

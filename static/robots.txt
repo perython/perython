@@ -1,4 +1,6 @@
-User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Disallow: /logout/
+User-Agent: *
+Allow: /
+Allow: /contacts/
+Allow: /portfolio/
+Allow: /bookshelf/
+Disallow: /

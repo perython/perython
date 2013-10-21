@@ -3,42 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% endblock %} / Perython</title>
+  <title>{% block title %}{% endblock %} of Perython</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css"/>
-  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&amp;subset=latin,cyrillic' />
-  {% block extra_css %}{% endblock %}
+  {% block extra-css %}{% endblock %}
 </head>
 <body>
-  {% include 'header.html' %}
-  <section class="main-section">
-    {% if user.is_authenticated %}
-      <div class="admin">
-        {% if messages %}
-          {% for message in messages %}
-            <p class="msg msg-{{ message.tags }}">{{ message }}</p>
-          {% endfor %}
-        {% endif %}
-        <a class="username" href="/admin/">{{ request.user.username }}</a>
-        {% block admin %}{% endblock %}
-        <a class="logout" href="/logout/">Log out</a>
-      </div>
-    {% endif %}
-    {% block content_header %}{% endblock %}
-    {% block content %}{% endblock %}
-  </section>
-  <script src="{{ STATIC_URL }}js/libs/jquery-1.7.1.min.js"></script>
-  <script src="{{ STATIC_URL }}js/base.js"></script>
-  {% block extra_js %}{% endblock %}
-  <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24448055-3']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ?  'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  <!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter21916318 = new Ya.Metrika({id:21916318, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/21916318" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+  <header>
+    <nav>
+      <a href="{% url 'contacts' %}">Contacts</a>
+      <a href="{% url 'portfolio' %}">Portfolio</a>
+      <a href="{% url 'bookshelf' %}">Bookshelf</a>
+    </nav>
+    <div class="title">
+      {% block header %}{% endblock %}
+    </div>
+  </header>
+  {% block content %}{% endblock %}
+
+  <script src="{{ STATIC_URL }}js/libs/modernizr.custom.js"></script>
+  {% block extra-js %}{% endblock %}
+  {% include 'analytics.html' %}
 </body>
 </html>

@@ -8,7 +8,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-sys.path.insert(0, PROJECT_ROOT + '/apps/')
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps/'))
 
 ADMINS = (
     ('perython', 'alexander.bubeev@gmail.com'),
@@ -16,6 +16,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 ALLOWED_HOSTS = [
+    '198.199.117.39',
     '.perython.com',
 ]
 
@@ -26,26 +27,23 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = PROJECT_ROOT + '/media/'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    PROJECT_ROOT + '/static/',
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    #'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,13 +52,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    PROJECT_ROOT + '/templates/',
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -80,17 +77,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.flatpages',
     'django.contrib.admin',
     'django.contrib.humanize',
-
     'south',
-    'notes',
-    'portfolio',
-    #'tagging',
-    'taggit',
     'book',
-    'disqus',
 )
 
 LOGGING = {
@@ -116,11 +106,3 @@ LOGGING = {
         },
     }
 }
-
-try:
-    if DEBUG:
-        from local_settings import *
-    else:
-        from prod_settings import *
-except ImportError:
-    pass

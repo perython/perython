@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookshelf{% endblock %}
+
+{% block header %}
+  <h1>Bookshelf</h1>
+  <p>Since January 2012 I've read <span class="total">{{ total_finished }}</span> books.</p>
+{% endblock %}
+
+{% block content %}
+  <section class="content">
+    <ul class="bookshelf effect" id="bookshelf">
+    {% for book in books %}
+      <li><img src="{{ book.get_img_url }}"></li>
+    {% endfor %}
+    </ul>
+  </section>
+{% endblock %}
+
+{% block extra-js %}
+  <script src="{{ STATIC_URL }}js/libs/masonry.pkgd.min.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/classie.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/AnimOnScroll.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/imagesloaded.js"></script>
+  <script>
+    new AnimOnScroll(document.getElementById( 'bookshelf' ), {
+      minDuration : 0.4,
+      maxDuration : 0.7,
+      viewportFactor : 0.2
+    });
+  </script>
+{% endblock %}
