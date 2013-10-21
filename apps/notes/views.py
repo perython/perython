@@ -6,7 +6,6 @@ from django.http import Http404
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
-from tagging.models import TaggedItem, Tag
 from notes.models import Post
 from notes.forms import PostAddForm
 
@@ -32,7 +31,7 @@ class PostsView(Posts, ListView):
 class PostsTaggedView(Posts, ListView):
 
     def get_queryset(self):
-        queryset = TaggedItem.objects.get_by_model(Post, self.kwargs['tag']).order_by('-date_created')
+        queryset = Post.objects.filter(tags__name__in=[self.kwargs['tag']]).order_by('-date_created')
         if not self.request.user.is_authenticated():
             return queryset.exclude(visible=False)
         return queryset

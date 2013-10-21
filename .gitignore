@@ -215,9 +215,13 @@ pip-log.txt
 .mr.developer.cfg
 
 # Custom files
+*.pyc
+
 django.wsgi
 uwsgi-options.ini
 local_settings.py
 prod_settings.py
+
 logs/
 media/
+env/

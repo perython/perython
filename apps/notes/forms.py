@@ -2,7 +2,6 @@
 # coding: utf-8
 
 from django import forms
-from tagging.forms import TagField
 from notes.models import Post
 
 class PostAddForm(forms.ModelForm):
