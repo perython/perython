@@ -1,0 +1,11 @@
+{{#if isAuthenticated}}
+  <div class="application__sidebar"></div>
+  <div id="page-wrapper" class="gray-bg">
+    <div class="application__header"></div>
+    <div class="application__content"></div>
+  </div>
+  <div class="application__overlay"></div>
+  <div class="application__flashes"></div>
+{{else}}
+  <div class="application__login"></div>
+{{/if}}

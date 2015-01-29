@@ -1,0 +1,40 @@
+<div class="sidebar-collapse">
+  <ul class="nav" id="side-menu">
+    <li class="nav-header">
+      <div class="dropdown profile-element">
+        <span>
+          <img alt="image" class="img-circle" src="/static/admin/images/kitten.png" />
+        </span>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+          <span class="clear">
+            <span class="block m-t-xs">
+              <strong class="font-bold">{{user.email}}</strong>
+            </span>
+          </span>
+        </a>
+        <ul class="dropdown-menu m-t-xs">
+          <li><a href="#" class="logout">Logout</a></li>
+        </ul>
+      </div>
+      <div class="logo-element">P</div>
+    </li>
+    {{#each primaryItems}}
+      <li {{#if active}}class="active"{{/if}}>
+        <a href="#{{path}}">
+          <i class="fa {{iconClass}}"></i>
+          <span class="nav-label">{{name}}</span>
+          {{#if children}}
+            <span class="fa arrow"></span>
+          {{/if}}
+        </a>
+        {{#if children}}
+          <ul class="nav nav-second-level collapse in">
+            {{#each children}}
+              <li><a href="#{{path}}">{{name}}</a></li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

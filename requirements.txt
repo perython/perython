@@ -1,6 +1,20 @@
-psycopg2
-Pillow==2.2.1
-Django==1.5.4
-South==0.7.6
-django-disqus==0.4.1
-django-taggit==0.10
+# web server
+Flask==0.10.1
+
+# orm
+Flask-SQLAlchemy==2.1
+Flask-Migrate==1.6.0
+psycopg2==2.6.1
+
+# misc
+ipython==4.2.0
+Flask-Login==0.3.2
+Flask-Cors==2.1.2
+python-dateutil==2.4.2
+redis==2.10.5
+toredis==0.1.2
+celery==3.1.19
+librabbitmq==1.6.1
+marshmallow==2.3.0
+marshmallow-sqlalchemy==0.6.0
+sockjs-tornado==1.0.1

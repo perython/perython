@@ -1,0 +1,42 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2>Books</h2>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="ibox">
+    <div class="ibox-title">
+      <h5>All books</h5>
+      <div class="ibox-tools">
+        <a href="#" class="btn btn-primary btn-xs add">Add new book</a>
+      </div>
+    </div>
+    <div class="ibox-content">
+      <form class="filters-form">
+        <div class="row m-b-md">
+          <div class="col-md-12">
+            <strong>Found <span class="total-items"></span> books</strong>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label>Search</label><br>
+            <input name="query" type="text" class="form-control" placeholder="Search by title or author">
+          </div>
+          <div class="col-md-2">
+            <label>Status</label><br>
+            <select name="status" class="form-control">
+              <option value="">---</option>
+              <option value="1">Planning</option>
+              <option value="2">In progress</option>
+              <option value="3">Finished</option>
+            </select>
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+      </form>
+      <div class="row books-list"></div>
+    </div>
+  </div>
+</div>

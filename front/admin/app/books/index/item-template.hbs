@@ -1,0 +1,33 @@
+<div class="books-item">
+  <div class="book-categories">
+    {{#each categories_names}}
+      <span class="label label-info">{{this}}</span>
+    {{/each}}
+  </div>
+  <div class="book-cover">
+    <div class="img-wrapper">
+      <img alt="image" src="/media/{{cover_url}}">
+    </div>
+  </div>
+  <div class="book-info">
+    <h3>{{title}}</h3>
+    <div class="book-author">{{author}}</div>
+  </div>
+  <div class="book-footer">
+    <div class="book-status">
+      {{#ifCond status '==' 1}}
+        <span class="label label-warning">Planning</span>
+      {{/ifCond}}
+      {{#ifCond status '==' 2}}
+        <span class="label label-info">In progress</span>
+      {{/ifCond}}
+      {{#ifCond status '==' 3}}
+        <span class="label label-primary">Finished</span>
+      {{/ifCond}}
+    </div>
+    <div class="btn-group">
+      <a href="#" class="btn btn-xs btn-white edit"><i class="fa fa-pencil"></i> Edit</a>
+      <a href="#" class="btn btn-xs btn-white text-danger delete"><i class="fa fa-trash"></i> Delete</a>
+    </div>
+  </div>
+</div>

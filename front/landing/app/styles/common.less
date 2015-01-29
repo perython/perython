@@ -1,0 +1,311 @@
+html,
+body,
+.application {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.application {
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@font-size-base: 14px;
+@padding-large-vertical: 10px;
+@screen-sm-min: 768px;
+
+@white: #fff;
+@light-black: #a9acaf;
+@mostly-black: #38393a;
+@black: #000;
+@light-blue: #f1f4f9;
+
+.application {
+  padding-top: 0;
+}
+
+.public {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: table;
+
+  background-color: @light-blue;
+  color: @mostly-black;
+
+  font-family: "Exo 2", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: @font-size-base * 1.4;
+
+  a {
+    color: @mostly-black;
+    text-decoration: none;
+
+    &:hover {
+      color: @black;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 100;
+    font-size: (@font-size-base * 4);
+    color: @mostly-black;
+  }
+
+  p {
+    animation-delay: 1s;
+    text-align: center;
+    font-weight: 100;
+    color: @mostly-black;
+  }
+
+  &__menu {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .login {
+      color: @light-blue;
+
+      &:hover {
+        color: initial;
+      }
+    }
+  }
+
+  &__content {
+    padding: (@padding-large-vertical * 6) 0;
+
+    @media screen and (min-width: @screen-sm-min) {
+      display: table-cell;
+      vertical-align: middle;
+
+      h1  {
+//        font-size: (@font-size-base * 6);
+      }
+
+      p {
+//        font-size: (@font-size-base * 2);
+      }
+    }
+  }
+
+  &__index {
+    .index__social {
+      width: 272px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: none;
+      overflow: hidden;
+
+      li {
+        float: left;
+        margin: 0 15px;
+        font-size: 3em;
+
+        i {
+          color: @light-black;
+
+          &:hover {
+            color: @mostly-black;
+          }
+          &.fa-linkedin {
+            font-size: 0.7em;
+          }
+          &.fa-github{
+            font-size: 0.73em;
+          }
+          &.fa-lastfm {
+            font-size: 0.8em;
+          }
+          &.fa-spotify {
+            font-size: 0.63em;
+          }
+        }
+      }
+    }
+  }
+
+  &__bookshelf {
+    > h1 {
+      margin-bottom: 0;
+    }
+
+    .books-filters {
+      width: 340px;
+      margin: 0 auto;
+
+      .filter-item {
+        margin: 0 5px;
+        background-color: #a9acaf;
+        border: 0;
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        padding: 7px 22px;
+        position: relative;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+        outline: none;
+
+        &.filter-item-active {
+          background-color: #38393a;
+        }
+      }
+    }
+
+    .books__wrap {
+      clear: both;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 720px;
+
+      .books__list {
+        margin: 30px auto;
+        padding: 0;
+        min-height: 500px;
+        list-style: none;
+
+        li {
+          display: inline-block;
+          overflow: hidden;
+          width: 200px;
+          text-align: left;
+          vertical-align: top;
+          margin: 10px 20px;
+
+          &.shown:hover h3 {
+            color: #fff;
+	        transform: translate3d(0,-30px,0);
+
+            a::before {
+              border-width: 14px;
+	            border-color: #2E3444;
+            }
+          }
+
+          a {
+            display: block;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+
+            &:hover h3 {
+              display: block;
+            }
+
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100.5%;
+              border: 0 solid transparent;
+              background: transparent;
+              content: '';
+              transition: border-width 0.2s, border-color 0.2s;
+            }
+
+            h3 {
+              display: none;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              margin: 0;
+              padding: 10px;
+              width: 180px;
+              background: #2e3444;
+              color: #f1f4f9;
+              text-align: right;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              font-weight: 100;
+              font-size: 0.5em;
+              transition: transform 0.2s, color 0.2s;
+
+              span {
+                display: block;
+                margin-top: 2px;
+                font-weight: 800;
+                color: #ff2a48;
+              }
+            }
+          }
+
+          img {
+            display: block;
+            outline: none;
+            border: none;
+            width: 200px;
+          }
+        }
+
+        .curtain {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #96cdc8;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,1);
+            content: '';
+          }
+        }
+
+        &.swipe-right .curtain {
+          transform: translate3d(-100%,0,0);
+        }
+
+        &.swipe-down .curtain {
+          transform: translate3d(0,-100%,0);
+        }
+
+        &.swipe-rotate .curtain {
+          width: 200%;
+          height: 200%;
+          transform: rotate3d(0,0,1,90deg);
+          transform-origin: top left;
+        }
+
+        &.grid.swipe-right .curtain::after,
+        &.grid.swipe-rotate .curtain::after {
+          left: -100%;
+        }
+
+        &.grid.swipe-down .curtain::after {
+          top: -100%;
+        }
+
+        &.swipe-right li.animate .curtain {
+          animation: swipeDown 1.5s cubic-bezier(0.6,0,0.4,1) forwards;
+        }
+
+        @keyframes swipeDown {
+          50%, 60% { transform: translate(0); }
+          100% { transform: translate3d(0,-100%,0); }
+        }
+      }
+    }
+  }
+}

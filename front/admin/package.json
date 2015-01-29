@@ -1,0 +1,61 @@
+{
+  "name": "perython",
+  "version": "1.0.0",
+  "description": "personal web page",
+  "author": "perython",
+  "devDependencies": {
+    "browserify-swap": "^0.2.2"
+  },
+  "dependencies": {
+    "backbone": "1.3.2",
+    "backbone-query-parameters": "git://github.com/jhudson8/backbone-query-parameters",
+    "backbone-routing": "^0.2.0",
+    "backbone-service-modals": "^0.2.0",
+    "backbone.marionette": "^2.4.5",
+    "backbone.radio": "^1.0.2",
+    "backbone.service": "^0.5.0",
+    "backbone.storage": "^0.1.0",
+    "backbone.syphon": "^0.6.3",
+    "bootstrap": "^3.3.6",
+    "handlebars": "^4.0.5",
+    "jquery": "^2.1.4",
+    "font-awesome": "^4.5.0",
+    "moment": "^2.10.6",
+    "nprogress": "^0.2.0",
+    "hbsfy": "^2.4.1",
+    "select2": "3.5.2-browserify"
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "browserify-swap": {
+    "@packages": [
+      "underscore"
+    ],
+    "dist": {
+      "underscore.js$": "lodash"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      [
+        "hbsfy",
+        {
+          "extensions": [
+            "hbs"
+          ]
+        }
+      ],
+      "browserify-swap",
+      "browserify-shim"
+    ]
+  }
+}

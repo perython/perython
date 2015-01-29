@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Allow: /contacts/
-Allow: /portfolio/
-Allow: /bookshelf/
-Disallow: /

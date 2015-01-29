@@ -1,0 +1,207 @@
+.nav {
+  > li {
+    border-left: 4px solid transparent;
+  }
+}
+
+.ibox-tools {
+  a {
+    color: inherit;
+  }
+}
+
+.flashes {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 300px;
+  z-index: 999999;
+
+  .flashes__alert {
+    background: #1ab394;
+    color: white;
+
+    &:before {
+      position: fixed;
+      margin: 0;
+      float: left;
+      font-family: FontAwesome;
+      font-size: 24px;
+      line-height: 24px;
+      color: #fff;
+    }
+
+    &.alert-success {
+      background: #1ab394;
+
+      &:before {
+        content: '\f00C';
+      }
+    }
+
+    &.alert-info {
+      background: #23c6c8;
+
+      &:before {
+        content: '\f005';
+      }
+    }
+
+    &.alert-error {
+      background: #ed5565;
+
+      &:before {
+        content: '\f071';
+      }
+    }
+
+    .flashes-message {
+      padding-left: 40px;
+    }
+  }
+}
+
+.books-list {
+  .books-item {
+    height: 440px;
+    margin-bottom: 25px;
+    border: 1px solid #e7eaec;
+
+    .book-categories {
+      position: absolute;
+      top: 10px;
+      left: 25px;
+    }
+
+    .book-cover {
+      height: 70%;
+      overflow: hidden;
+
+      .img-wrapper {
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    .book-info {
+      height: 20%;
+      padding: 10px;
+
+      h3 {
+        margin: 0 0 5px;
+      }
+    }
+
+    .book-footer {
+      height: 10%;
+      padding: 10px;
+      border-top: 1px solid #e7eaec;
+
+      .book-status {
+        float: left;
+      }
+
+      .btn-group {
+        float: right;
+      }
+    }
+  }
+}
+
+.book-edit-modal {
+  .cover-img {
+    width: 100%;
+  }
+}
+
+.contact-box {
+  .contact-box-content {
+    display: block;
+    background-color: #ffffff;
+    padding: 0;
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  .contact-box-footer {
+    text-align: left;
+
+    .actions {
+      position: relative;
+    }
+  }
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.playlists-list {
+  .playlist-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    border-top: 1px solid #e7eaec;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    &.active {
+      background: #f5f5f5;
+
+      .btn-group {
+        display: block;
+      }
+    }
+
+    .playlist-images {
+      height: 80px;
+      width: 80px;
+      float: left;
+      overflow: hidden;
+      margin-right: 5px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #ccc;
+    }
+
+    strong {
+      color: #676a6c;
+
+      &:hover {
+        color: #676a6c;
+      }
+    }
+
+    .btn-group {
+      display: none;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+
+      a {
+        color: #676a6c;
+      }
+    }
+  }
+}
