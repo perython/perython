@@ -12,3 +12,6 @@ celerybeat-schedule
 
 front/admin/app/config.js
 front/landing/app/config.js
+
+settings/production.py
+static.tar.gz

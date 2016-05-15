@@ -233,7 +233,7 @@ class CategoriesLiveSearchView(MethodView, PaginationMixin):
                 Category.name.ilike('%{}%'.format(q.strip()))
             )
 
-        start, end, page, total = self.paginate(request, )
+        start, end, page, total = self.paginate(request, categories_query)
 
         data = CategoriesLiveSearchSchema().dump(categories_query.slice(start, end), many=True).data
         return json.dumps({

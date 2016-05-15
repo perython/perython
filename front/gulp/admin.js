@@ -10,7 +10,6 @@ var _ = require('lodash');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var minifyCSS = require('gulp-minify-css');
-var server = require('../server');
 
 global.isProd = false;
 
@@ -84,6 +83,14 @@ gulp.task('admin_scripts', function(cb) {
   bundle(cb, !global.isProd);
 });
 
+gulp.task('admin_revision', function() {
+  if (global.isProd) {
+    return gulp.src(dest + '/index.html')
+      .pipe($.staticHash({asset: dest + '/../..'}))
+      .pipe(gulp.dest(dest));
+  }
+});
+
 gulp.task('admin_build', [
   'admin_index',
   'admin_images',
@@ -93,6 +100,7 @@ gulp.task('admin_build', [
 ]);
 
 gulp.task('admin_watch', ['admin_build'], function() {
+  var server = require('../server');
   browserSync({
     server: {
       baseDir: dest,
@@ -127,4 +135,6 @@ gulp.task('admin_set_prod', function() {
 
 gulp.task('admin_dev', ['admin_set_config', 'admin_watch']);
 
-gulp.task('admin_prod', ['admin_set_prod', 'admin_set_config', 'admin_build']);
+gulp.task('admin_prod', ['admin_set_prod', 'admin_set_config', 'admin_build'], function() {
+  gulp.start('admin_revision');
+});

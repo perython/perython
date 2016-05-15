@@ -65,9 +65,8 @@ export default Behavior.extend({
 
         options.initSelection = function(el, cb) {
           if (el.val()) {
-            let url = item.options.initSelectionUrl;
-            url += `?ids=${el.val()}`;
-            $.getJSON(url).done((data) => {
+            let url = item.options.url;
+            $.getJSON(url, {ids: el.val()}).done((data) => {
               cb(data);
             });
           }

@@ -33,8 +33,7 @@ export default ItemView.extend({
               page: page,
               page_limit: 20
             }
-          },
-          initSelectionUrl: '/api/books/categories/live-search'
+          }
         }
       }]
     }

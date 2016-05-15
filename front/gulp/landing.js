@@ -10,7 +10,6 @@ var _ = require('lodash');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var minifyCSS = require('gulp-minify-css');
-var server = require('../server');
 
 global.isProd = false;
 
@@ -78,6 +77,14 @@ gulp.task('landing_scripts', function(cb) {
   bundle(cb, !global.isProd);
 });
 
+gulp.task('landing_revision', function() {
+  if (global.isProd) {
+    return gulp.src(dest + '/index.html')
+      .pipe($.staticHash({asset: dest + '/../..'}))
+      .pipe(gulp.dest(dest));
+  }
+});
+
 gulp.task('landing_build', [
   'landing_styles',
   'landing_fonts',
@@ -86,6 +93,7 @@ gulp.task('landing_build', [
 ]);
 
 gulp.task('landing_watch', ['landing_build'], function() {
+  var server = require('../server');
   browserSync({
     server: {
       baseDir: dest,
@@ -121,4 +129,6 @@ gulp.task('landing_set_prod', function() {
 
 gulp.task('landing_dev', ['landing_set_config', 'landing_watch']);
 
-gulp.task('landing_prod', ['landing_set_prod', 'landing_set_config', 'landing_build']);
+gulp.task('landing_prod', ['landing_set_prod', 'landing_set_config', 'landing_build'], function() {
+  gulp.start('landing_revision');
+});

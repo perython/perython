@@ -8,9 +8,27 @@ export default CompositeView.extend({
   childViewContainer: '.books__list',
   childView: ItemView,
 
+  ui: {
+    totalItems: '.total-items'
+  },
+
+  initialize() {
+    this.listenTo(this.collection, 'collection:total', () => {
+      this.updateTotal();
+    });
+  },
+
   templateHelpers() {
     return {
       total: this.collection.total
     }
+  },
+
+  onShow() {
+    this.updateTotal()
+  },
+
+  updateTotal() {
+    this.ui.totalItems.text(this.collection.total);
   }
 });
