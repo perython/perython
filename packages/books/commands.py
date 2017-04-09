@@ -37,5 +37,5 @@ class UploadBooks(Command):
                 db.session.add(book)
                 db.session.commit()
                 counter += 1
-                print u'added {}'.format(book.title)
-            print '{} added'.format(counter)
+                print(u'added {}'.format(book.title))
+            print('{} added'.format(counter))

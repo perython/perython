@@ -12,9 +12,5 @@ Flask-Login==0.3.2
 Flask-Cors==2.1.2
 python-dateutil==2.4.2
 redis==2.10.5
-toredis==0.1.2
-celery==3.1.19
-librabbitmq==1.6.1
 marshmallow==2.3.0
 marshmallow-sqlalchemy==0.6.0
-sockjs-tornado==1.0.1

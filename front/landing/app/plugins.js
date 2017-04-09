@@ -5,7 +5,6 @@ import Marionette from 'backbone.marionette';
 import 'backbone.syphon';
 import 'backbone-query-parameters';
 import 'babel-polyfill';
-import 'sockjs-client';
 import config from './config';
 
 // start the marionette inspector

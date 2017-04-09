@@ -27,9 +27,6 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 
-from init.celery_init import celery
-
-
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     db.session.remove()
