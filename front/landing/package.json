@@ -19,7 +19,7 @@
     "font-awesome": "^4.5.0",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.4.1",
-    "jquery": "^2.1.4",
+    "jquery": "^3.3.1",
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
     "sockjs-client": "~1.0.3"
