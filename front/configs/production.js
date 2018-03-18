@@ -1,4 +1,4 @@
 export default {
-  host: 'http://perython.com',
+  host: 'https://perython.com',
   adminPage: '/admin'
 }
