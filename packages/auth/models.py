@@ -25,7 +25,7 @@ class User(BaseModel, TimestampMixin, UserMixin, db.Model):
     @staticmethod
     def makepswd(password):
         secret = app.config['SECRET_KEY']
-        return hashlib.md5(password.encode('utf-8').join(secret)).hexdigest()
+        return hashlib.md5(password.join(secret).encode('utf-8')).hexdigest()
 
     def maketoken(self):
         s = Serializer(app.config['SECRET_KEY'])

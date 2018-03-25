@@ -59,7 +59,7 @@ class LoginView(MethodView):
         if not user or user.makepswd(data['password']) != user.password:
             abort(400)
 
-        user.token = user.maketoken()
+        user.token = user.maketoken().decode('utf-8')
         db.session.add(user)
         db.session.commit()
 
